@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name devApp.controller:DayexpenseCtrl
+ * @name cashflowApp.controller:DayexpenseCtrl
  * @description
  * # DayexpenseCtrl
- * Controller of the devApp
+ * Controller of the cashflowApp
  */
-angular.module('devApp')
+angular.module('cashflowApp')
   .controller('DayExpenseCtrl', function ($scope) {
 
 		$scope.expenses = [];

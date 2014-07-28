@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name devApp
+ * @name cashflowApp
  * @description
- * # devApp
+ * # cashflowApp
  *
  * Main module of the application.
  */
 angular
-  .module('devApp', [
+  .module('cashflowTracker', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

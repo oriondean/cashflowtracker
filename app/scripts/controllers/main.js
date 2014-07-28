@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name devApp.controller:MainCtrl
+ * @name cashflowTracker.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the devApp
+ * Controller of the cashflowTracker
  */
-angular.module('devApp')
+angular.module('cashflowTracker')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

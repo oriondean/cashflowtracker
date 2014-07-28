@@ -3,7 +3,7 @@
 describe('Controller: ExpenseCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('devApp'));
+  beforeEach(module('cashflowApp'));
 
   var ExpenseCtrl,
     scope;

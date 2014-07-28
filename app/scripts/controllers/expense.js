@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name devApp.controller:ExpenseCtrl
+ * @name cashflowApp.controller:ExpenseCtrl
  * @description
  * # ExpenseCtrl
- * Controller of the devApp
+ * Controller of the cashflowApp
  */
-angular.module('devApp')
+angular.module('cashflowApp')
   .controller('ExpenseCtrl', function ($scope) {
 
 		$scope.category = '';
