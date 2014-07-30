@@ -1,0 +1,13 @@
+<h3>Expense List</h3><hr/>
+
+<div ng-repeat="dayExpense in dayExpenses" class="day-expense">
+  <h4>{{dayExpense.date | date: 'd MMMM yyyy'}}</h4>
+  <table class="table table-bordered table-striped table-condensed">
+    <tr><th>Description</th><th>Category</th><th>Price</th></tr>
+    <tr ng-repeat="expense in dayExpense.expenses">
+      <td>{{expense.description}}</td>
+      <td>{{expense.category}}</td>
+      <td>{{expense.price}}</td>
+    </tr>
+  </table>
+</div>

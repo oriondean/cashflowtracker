@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc overview
- * @name cashflowApp
+ * @name cashflowTracker
  * @description
- * # cashflowApp
+ * # cashflowTracker
  *
  * Main module of the application.
  */
@@ -20,8 +20,8 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/expenseList.html',
+        controller: 'ExpenseListCtrl'
       })
       .otherwise({
         redirectTo: '/'
