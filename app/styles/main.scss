@@ -17,3 +17,16 @@ body {
 .day-expense {
   margin-top: 30px;
 }
+
+.faded {
+  color: #CCC;
+  font-style: italic;
+}
+
+.day-expense-preview .header {
+  font-style: italic;
+}
+
+.number-field {
+  text-align: right;
+}

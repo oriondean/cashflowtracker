@@ -1,0 +1,47 @@
+<h3>New Day Expense</h3><hr />
+<form class="form form-horizontal" role="form" name="date-form" novalidate>
+  <div class="form-group">
+    <label for="dateInput" class="col-md-1 control-label">Date</label>
+    <div class="col-md-2">
+      <input id="dateInput" type="date" class="form-control col-md-2" ng-model="date" required />
+    </div>
+  </div>
+</form>
+<form class="form form-horizontal" role="form" name="expenseForm" novalidate>
+  <div class="form-group">
+    <div class="col-md-2 col-md-offset-1">
+      <input type="text" ng-model="newExpense.description" required placeholder="Enter Description" class="form-control"/>
+    </div>
+    <div class="col-md-2">
+      <select type="text" ng-model="newExpense.category" ng-options="category as category for category in categories" required class="form-control"></select>
+    </div>
+    <div class="col-md-2">
+      <input type="text" ng-model="newExpense.price" required placeholder="Enter Price" class="form-control"/>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-success form-control" ng-disabled="expenseForm.$invalid" ng-click="addDayExpense()">Add New Expense</button>
+    </div>
+  </div>
+</form>
+
+<div class="day-expense-preview">
+  <hr />
+  <h3 class="header">Preview</h3>
+
+  <h4 ng-show="!date" class="faded">No date added</h4>
+  <h4>{{date | date: 'd MMMM yyyy'}}</h4>
+
+  <table class="table table-bordered table-striped table-condensed">
+    <tr><th>Description</th><th>Category</th><th>Price</th></tr>
+    <tr ng-repeat="expense in expenses">
+      <td>{{expense.description}}</td>
+      <td>{{expense.category}}</td>
+      <td>{{expense.price | currency : '£'}}</td>
+    </tr>
+    <tr ng-show="!expenses.length" class="faded">
+      <td>No expense added</td>
+      <td>No expense added</td>
+      <td>No expense added</td>
+    </tr>
+  </table>
+</div>

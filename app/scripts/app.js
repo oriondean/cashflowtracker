@@ -23,6 +23,10 @@ angular
         templateUrl: 'views/expenseList.html',
         controller: 'ExpenseListCtrl'
       })
+	    .when('/new', {
+		    templateUrl: 'views/newDayExpense.html',
+		    controller: 'NewDayExpenseCtrl'
+	    })
       .otherwise({
         redirectTo: '/'
       });
