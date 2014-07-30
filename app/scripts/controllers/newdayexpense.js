@@ -10,13 +10,9 @@
 angular.module('cashflowTracker')
   .controller('NewDayExpenseCtrl', function ($scope) {
 
-		$scope.categories = [
-			'Food', 'Travel', 'Utility', 'Entertainment', 'Car', 'Rent'
-		];
+		$scope.categories = ['Food', 'Travel', 'Utility', 'Entertainment', 'Car', 'Rent'];
 
-		$scope.expenses = [
-
-		];
+		$scope.expenses = [];
 
 		$scope.addDayExpense = function() {
 			$scope.expenses.push($scope.newExpense);
