@@ -1,47 +1,27 @@
 <h3>New Day Expense</h3><hr />
-<form class="form form-horizontal" role="form" name="date-form" novalidate>
-  <div class="form-group">
-    <label for="dateInput" class="col-md-1 control-label">Date</label>
-    <div class="col-md-2">
-      <input id="dateInput" type="date" class="form-control col-md-2" ng-model="date" required />
-    </div>
+
+<div class="day-expense-form">
+
+  <input class="enter-date" type="date" ng-model="date" contenteditable />
+
+  <div class="expense-table-container">
+    <table class="table table-striped expense-table">
+      <tr><th>Description</th><th>Category</th><th>Price</th></tr>
+      <tr ng-repeat="expense in expenses">
+        <td>{{expense.description}}</td>
+        <td>{{expense.category}}</td>
+        <td>{{expense.price | currency : '£'}}</td>
+      </tr>
+      <tr class="editable-row">
+        <td><input type="text" placeholder="Add description" ng-model="newExpense.description" class="table-cell-field"/></td>
+        <td>
+          <select type="text" ng-model="newExpense.category" ng-options="category as category for category in categories" required class="form-control table-cell-field"></select>
+        </td>
+        <td><input type="text" placeholder="Add price" ng-model="newExpense.price" class="table-cell-field"/></td>
+      </tr>
+    </table>
+    <button class="btn add-expense-btn" ng-disabled="!(newExpense.price && newExpense.description)" ng-click="addExpense()">Add</button>
   </div>
-</form>
-<form class="form form-horizontal" role="form" name="expenseForm" novalidate>
-  <div class="form-group">
-    <div class="col-md-2 col-md-offset-1">
-      <input type="text" ng-model="newExpense.description" required placeholder="Enter Description" class="form-control"/>
-    </div>
-    <div class="col-md-2">
-      <select type="text" ng-model="newExpense.category" ng-options="category as category for category in categories" required class="form-control"></select>
-    </div>
-    <div class="col-md-2">
-      <input type="text" ng-model="newExpense.price" required placeholder="Enter Price" class="form-control"/>
-    </div>
-    <div class="col-md-2">
-      <button class="btn btn-success form-control" ng-disabled="expenseForm.$invalid" ng-click="addDayExpense()">Add New Expense</button>
-    </div>
-  </div>
-</form>
 
-<div class="day-expense-preview">
-  <hr />
-  <h3 class="header">Preview</h3>
-
-  <h4 ng-show="!date" class="faded">No date added</h4>
-  <h4>{{date | date: 'd MMMM yyyy'}}</h4>
-
-  <table class="table table-bordered table-striped table-condensed">
-    <tr><th>Description</th><th>Category</th><th>Price</th></tr>
-    <tr ng-repeat="expense in expenses">
-      <td>{{expense.description}}</td>
-      <td>{{expense.category}}</td>
-      <td>{{expense.price | currency : '£'}}</td>
-    </tr>
-    <tr ng-show="!expenses.length" class="faded">
-      <td>No expense added</td>
-      <td>No expense added</td>
-      <td>No expense added</td>
-    </tr>
-  </table>
+  <button class="btn btn-success" ng-disabled="!(expenses.length && date)" ng-click="addDayExpense()">New Day Expense</button>
 </div>

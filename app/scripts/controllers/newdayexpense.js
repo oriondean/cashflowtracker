@@ -14,10 +14,14 @@ angular.module('cashflowTracker')
 
 		$scope.expenses = [];
 
-		$scope.addDayExpense = function() {
+		$scope.addExpense = function() {
 			$scope.expenses.push($scope.newExpense);
 			$scope._resetExpenseForm();
 		};
+
+    $scope.addDayExpense = function() {
+    //TODO
+    };
 
 		$scope._resetExpenseForm = function() {
 			$scope.newExpense = {
