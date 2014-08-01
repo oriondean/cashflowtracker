@@ -8,10 +8,11 @@
  * Controller of the cashflowTracker
  */
 angular.module('cashflowTracker')
-  .controller('NewDayExpenseCtrl', function ($scope) {
+  .controller('NewDayExpenseCtrl', ['$scope', 'DayExpenseService', function ($scope, dayExpenseService) {
 
 		$scope.categories = ['Food', 'Travel', 'Utility', 'Entertainment', 'Car', 'Rent'];
 
+    $scope.date = '';
 		$scope.expenses = [];
 
 		$scope.addExpense = function() {
@@ -20,7 +21,14 @@ angular.module('cashflowTracker')
 		};
 
     $scope.addDayExpense = function() {
-    //TODO
+      dayExpenseService.dayExpenses.push({
+        date: $scope.date,
+        expenses: $scope.expenses
+      });
+
+      $scope.date = '';
+      $scope.expenses = [];
+      $scope._resetExpenseForm();
     };
 
 		$scope._resetExpenseForm = function() {
@@ -32,4 +40,4 @@ angular.module('cashflowTracker')
 		};
 
 		$scope._resetExpenseForm(); // reset form for first use
-  });
+  }]);
