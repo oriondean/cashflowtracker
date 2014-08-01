@@ -4,7 +4,7 @@
 
   <input class="enter-date" type="date" ng-model="date" contenteditable />
 
-  <div class="expense-table-container">
+  <form class="expense-table-container expense-form" role="form" name="expenseForm" novalidate>
     <table class="table table-striped expense-table">
       <tr><th>Description</th><th>Category</th><th>Price</th></tr>
       <tr ng-repeat="expense in expenses">
@@ -13,14 +13,21 @@
         <td>{{expense.price | currency : '£'}}</td>
       </tr>
       <tr class="editable-row">
-        <td><input type="text" placeholder="Add description" ng-model="newExpense.description" class="table-cell-field"/></td>
+        <td><input type="text" name="description" placeholder="Add description" ng-model="newExpense.description" class="table-cell-field" required/></td>
         <td>
-          <select type="text" ng-model="newExpense.category" ng-options="category as category for category in categories" required class="form-control table-cell-field"></select>
+          <select type="text" ng-model="newExpense.category" ng-options="category as category for category in categories" class="form-control table-cell-field"></select>
         </td>
-        <td><input type="text" placeholder="Add price" ng-model="newExpense.price" class="table-cell-field"/></td>
+        <td><input type="number" name="price" placeholder="Add price" ng-model="newExpense.price" class="table-cell-field" min="0" required/></td>
       </tr>
     </table>
-    <button class="btn add-expense-btn" ng-disabled="!(newExpense.price && newExpense.description)" ng-click="addExpense()">Add</button>
+
+    <button class="btn add-expense-btn" ng-disabled="expenseForm.$invalid" ng-click="addExpense()">Add</button>
+  </form>
+
+  <div class="form-validation-messages panel">
+    <div class="text-danger" ng-show="expenseForm.description.$dirty && expenseForm.description.$error.required">Please provide a description for the expense.</div>
+    <div class="text-danger" ng-show="expenseForm.price.$dirty && expenseForm.price.$error.required">Please provide a price for the expense.</div>
+    <div class="text-danger" ng-show="expenseForm.price.$dirty && expenseForm.price.$error.min">Price must be above zero.</div>
   </div>
 
   <button class="btn btn-success" ng-disabled="!(expenses.length && date)" ng-click="addDayExpense()">New Day Expense</button>

@@ -37,6 +37,10 @@ angular.module('cashflowTracker')
 				category: $scope.categories[0],
 				price: ''
 			};
+
+      if($scope.expenseForm) {
+        $scope.expenseForm.$setPristine();
+      }
 		};
 
 		$scope._resetExpenseForm(); // reset form for first use

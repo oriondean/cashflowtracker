@@ -37,14 +37,16 @@ body {
 }
 
 .editable-row td {
-  padding: 0px; // embedded input handles the padding (input must stretch 100% of td)
+  padding: 0; // embedded input handles the padding (input must stretch 100% of td)
 }
 
 .table-cell-field {
   border: none;
   width: 100%;
-  padding: 7px 5px;
+  height: 27px;
+  padding: 0;
   background: transparent;
+  outline: none; // stop chrome highlight
 }
 
 .expense-table-container {
@@ -59,4 +61,16 @@ body {
   position: absolute;
   right: 5%;
   bottom: 7px;
+}
+
+.expense-form input {
+  bordeR: 1px solid transparent;
+}
+
+.expense-form input.ng-invalid.ng-dirty {
+  border-color: #b41500;
+}
+
+.expense-form select {
+  margin-left: -5px; // keep select aligned with expenses table
 }
